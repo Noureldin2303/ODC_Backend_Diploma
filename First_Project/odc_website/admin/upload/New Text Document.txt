@@ -1,0 +1,5 @@
+ <a href="update.php"><input type="button" class="Btn" value="EDIT" style="background-color: #f1a036;color:aliceblue;border:none;width:120px;height:35px;border-radius:5px;"></a>
+                         
+                        <form method="post" action="logout.php">
+                        <input type="submit" class="Btn" value="Logout" style="background-color: #f1a036;color:aliceblue;border:none;width:120px;height:35px;border-radius:5px;">
+                        </form>
