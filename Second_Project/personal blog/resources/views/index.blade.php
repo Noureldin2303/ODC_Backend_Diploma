@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevBlog - Ahmad Walker's Personal Blog</title>
+    <title>DevBlog - Noureldin Farag's Personal Blog</title>
 
     <!--
     - favicon
@@ -145,7 +145,7 @@
                 <div class="left">
 
                     <h1 class="h1">
-                        Hi, I'm <b>Ahmad&nbsp;Walker</b>.
+                        Hi, I'm <b>Noureldin Farag</b>.
                         <br>Web Developer
                     </h1>
 
@@ -153,8 +153,9 @@
                         Specialized in <abbr title="Accessibility">PHP</abbr>
                         and Core Web Vitals
                     </p>
-
+                
                     <div class="btn-group">
+                    @csrf
                     @if (!isset($_COOKIE['admin'])&&!$_COOKIE['admin'])
                     <a href="{{url('login')}}" class="btn btn-secondary"> Login</a>
                     @endif
@@ -170,7 +171,7 @@
 
                     <div class="pattern-bg"></div>
                     <div class="img-box">
-                        <img src="./assets/images/hero.png" alt="Julia Walker" class="hero-img">
+                        <img src="./assets/images/hero.png" alt="Noureldin Farag" class="hero-img">
                         <div class="shape shape-1"></div>
                         <div class="shape shape-2"></div>
                     </div>
@@ -193,7 +194,7 @@
                     <h2 class="h2">Latest Blog Post</h2>
 
                     <div class="blog-card-group">
-                        
+                        @csrf
                         @foreach ($articles as $article)
                             <div class="blog-card">
                                 <div class="blog-card-banner">
@@ -218,11 +219,11 @@
                                     <div class="wrapper-flex">
 
                                         <div class="profile-wrapper">
-                                            <img src="./assets/images/author.png" alt="Ahmad Walker" width="50">
+                                            <img src="./assets/images/author.png" alt="Noureldin Farag" width="50">
                                         </div>
 
                                         <div class="wrapper">
-                                            <a href="#" class="h4">Ahmad Walker</a>
+                                            <a href="#" class="h4">Noureldin Farag</a>
 
                                             <p class="text-sm">
                                                 <time datetime="2022-01-17">{{ $article->time }}</time>
@@ -233,6 +234,7 @@
                                         </div>
 
                                     </div>
+                                    @csrf
                                     @if (isset($_COOKIE['admin']) && $_COOKIE['admin'])
                                     
                                         <div class="flex-action">
@@ -265,55 +267,6 @@
         -->
 
                 <div class="aside">
-
-                    <div class="topics">
-
-                        <h2 class="h2">Topics</h2>
-
-                        <a href="#" class="topic-btn">
-                            <div class="icon-box">
-                                <ion-icon name="server-outline"></ion-icon>
-                            </div>
-
-                            <p>Database</p>
-                        </a>
-
-                        <a href="#" class="topic-btn">
-                            <div class="icon-box">
-                                <ion-icon name="accessibility-outline"></ion-icon>
-                            </div>
-
-                            <p>Accessibility</p>
-                        </a>
-
-                        <a href="#" class="topic-btn">
-                            <div class="icon-box">
-                                <ion-icon name="rocket-outline"></ion-icon>
-                            </div>
-
-                            <p>Web Performance</p>
-                        </a>
-
-                    </div>
-                    <!--
-                    <div class="tags">
-
-                        <h2 class="h2">Tags</h2>
-
-                        <div class="wrapper">
-
-                            <button class="hashtag">#mongodb</button>
-                            <button class="hashtag">#nodejs</button>
-                            <button class="hashtag">#a11y</button>
-                            <button class="hashtag">#mobility</button>
-                            <button class="hashtag">#inclusion</button>
-                            <button class="hashtag">#webperf</button>
-                            <button class="hashtag">#optimize</button>
-                            <button class="hashtag">#performance</button>
-
-                        </div>
-
-                    </div> -->
 
                     <div class="contact">
 

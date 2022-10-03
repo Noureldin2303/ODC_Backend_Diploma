@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/templatemo-xtra-blog.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}" />
+
 </head>
 
 <body>
@@ -29,52 +31,38 @@
 
         </div>
     </header>
-    <div class="container-fluid">
-        <main class="tm-main">
-
-            <div class="row tm-row">
-                <center>
-                    <div class="col-12">
-                        <hr class="tm-hr-primary tm-mb-55">
-                    </div>
-                </center>
-            </div>
-            <div class="row tm-row">
-                <div>
-                    <div>
-                        <div class="mb-4">
-                            <form action="{{ url('blog/add') }}" method="post" enctype='multipart/form-data'>
-                            @csrf
-                                <span>  </span>
-                                <span>Image :</span>
-                                    <div class="mb-4">
-                                    <input type="file" name="img" value="blog Image" >                                    
-                                    </div>
-                            <span>title :</span>
-                                <div class="mb-4">
-                                    <input type="text" class="form-control" name="title">
-                                    </br>
-
-                                    <span>Body :</span>
-                                    <div class="mb-4">
-                                        <textarea class="form-control" name="article_body" rows="15"></textarea>
-                                    </div>
-                                    <div class="text-right">
-                                        <input type="submit" class="tm-btn tm-btn-primary tm-btn-small"
-                                            value="Submit" />
-                            </form>
-                            {{-- بعدين --}}
-                            {{-- <span class="d-block text-right tm-color-primary">Creative . Design . Business</span> --}}
+    <div class="container">
+ 
+        <section class="post">
+            <header>Create Post</header>
+            <form action="{{ url('blog/add') }}" method="post" enctype='multipart/form-data'>
+            @csrf
+                <div class="content">
+                    <img src="{{url('./assets/images/hero.png')}}" alt="logo">
+                    <div class="details">
+                        <p>Noureldin Farag</p>
+                        <div class="privacy">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Public</span>
+                            <i class="fas fa-caret-down"></i>
                         </div>
-
-                        <!-- Comments -->
-
                     </div>
                 </div>
+                <div class="options">
+                    <input type="text" placeholder="Add a title" name="title" class="title" />
+                </div>
+                <textarea name="article_body" placeholder=" What's on your mind, ?" spellcheck="false" required></textarea>
+              
+                <div class="upload" data-text="Select your file!">
+                    <input name="file-upload-field" type="file" name="img" class="file-upload-field" required>
+                </div>
 
-            </div>
 
-        </main>
+                <input type="submit" value="Post" class="button" />
+                
+            </form>
+        </section>
+
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/templatemo-script.js"></script>

@@ -42,7 +42,7 @@ class blogs extends Controller
             "article_id" => $id,
             "comment_body" => $this->RemoveBadWords($request->message),
             "is_active" => 1,
-            "time" => now()
+            
         ]);
 
         $article = DB::table("article")->where("article_id", $id)->first();

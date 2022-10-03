@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin;
-use App\Http\Controllers\Uplo;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\blogs;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
