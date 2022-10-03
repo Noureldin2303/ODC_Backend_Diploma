@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2022 at 01:54 PM
+-- Generation Time: Sep 29, 2022 at 09:26 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -30,21 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `article` (
   `article_id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `article_body` varchar(2000) NOT NULL,
-  `img` varchar(300) NOT NULL,
+  `article_body` varchar(255) NOT NULL,
   `is_active` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `article`
---
-
-INSERT INTO `article` (`article_id`, `title`, `article_body`, `img`, `is_active`, `category_id`, `time`) VALUES
-(3, 'news', 'm\\bsdb', 'blog-4.png', 1, 1, '2022-10-03 11:48:07'),
-(4, 'Second', 'industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'blog-10.png', 1, 1, '2022-10-03 11:43:22'),
-(5, 'Introduction to algorithms', 'industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'blog-5.png', 1, 3, '2022-10-03 11:48:53');
 
 -- --------------------------------------------------------
 
@@ -54,18 +43,9 @@ INSERT INTO `article` (`article_id`, `title`, `article_body`, `img`, `is_active`
 
 CREATE TABLE `category` (
   `catigory_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `name` int(11) NOT NULL,
   `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`catigory_id`, `name`, `is_active`) VALUES
-(1, 'DB', 1),
-(2, 'Data structures', 1),
-(3, 'Alogrithms', 1);
 
 -- --------------------------------------------------------
 
@@ -138,13 +118,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `catigory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `catigory_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `comments`
