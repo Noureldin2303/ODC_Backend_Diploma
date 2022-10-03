@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/templatemo-xtra-blog.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -36,9 +37,7 @@
                 <center>
                     <div class="col-12">
                         <hr class="tm-hr-primary tm-mb-55">
-                        <img src="{{ asset('assets/images/' . $article->img . '') }}"
-                            alt="Building microservices with Dropwizard, MongoDB & Docker" width="750"
-                            class="blog-banner-img">
+                        <img src="{{ asset('assets/images/' . $article->img . '') }}" alt="Building microservices with Dropwizard, MongoDB & Docker" width="750" class="blog-banner-img">
                     </div>
                 </center>
             </div>
@@ -58,16 +57,21 @@
                         <!-- Comments -->
                         <div>
                             <h2 class="tm-color-primary tm-post-title">Comments</h2>
-                            <hr>
+                            <hr class="tm-hr-primary tm-mb-45">
                             @foreach ($comment as $c)
+                            <div class="tm-comment tm-mb-45">
+                                <figure class="tm-comment-figure">
+                                    <img src="../assets/images/comment.png" alt="Image" width="100px" height="100px" class="mb-2 rounded-circle img-thumbnail">
+                                    <figcaption class="tm-color-primary text-center">Anonymous</figcaption>
+                                </figure>
                                 <div>
-
-                                    <h4>{{$c->comment_id}} | {{ $c->comment_body }} </h4>
+                                    <p>{{ $c->comment_body }}</p>
+                                    <br>
                                 </div>
-
+                            </div>
                             @endforeach
                             <form action="{{url("comment/add/$article->article_id")}}" method="post" class="mb-5 tm-comment-form">
-                            @csrf
+                                @csrf
                                 <h2 class="tm-color-primary tm-post-title mb-4">Your comment</h2>
 
                                 <div class="mb-4">
@@ -80,10 +84,12 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+    </div>
 
-        </main>
+    </div>
+
+    </main>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/templatemo-script.js"></script>
