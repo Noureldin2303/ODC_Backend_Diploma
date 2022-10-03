@@ -156,15 +156,15 @@
                 
                     <div class="btn-group">
                     @csrf
-                    @if (!isset($_COOKIE['admin'])&&!$_COOKIE['admin'])
+                
                     <a href="{{url('login')}}" class="btn btn-secondary"> Login</a>
-                    @endif
+                    
                         @if (isset($_COOKIE['admin'])&&$_COOKIE['admin'])
                             <a href="Blog/Create" class="btn btn-secondary">Add Blog</a>
                             <a href="{{url('logout')}}" class="btn btn-secondary"> Logout</a>
                         @endif
                     </div>
-
+                    
                 </div>
 
                 <div class="right">
