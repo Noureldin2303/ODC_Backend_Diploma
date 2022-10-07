@@ -58,14 +58,15 @@ class admin extends Controller
         ]);
         return redirect("/");
     }
-    public function DeleteArticle($id)
+    public function DeleteArticle($id,Request $request)
     {
+        DB::table("comments")->where('article_id', $request->id)->delete();
         DB::table("article")->where('article_id', $id)->delete();
         return redirect("/");
     }
     public function DeleteComment(Request $request)
     {
-        DB::table("comment")->where('id', $request->id)->delete();
+        DB::table("comments")->where('comment_id', $request->id)->delete();
         return redirect("/");
     }
     public function hidearticle(Request $request)
@@ -77,7 +78,7 @@ class admin extends Controller
     }
     public function HideComment(Request $request)
     {
-        DB::table("comments")->where('id', $request->id)->update([
+        DB::table("comments")->where('comment_id', $request->id)->update([
             "isactive" => 0
         ]);
         return redirect("/");
