@@ -57,7 +57,7 @@
                                 <div class="mb-4">
                                     <input type="text" class="form-control" name="title"
                                         value="{{ $article->title }}">
-                                    <p class="">{{ $article->time }} posted by Admin Nat</p>
+                                    <p class="">{{ $article->created_at }} posted by Admin Nat</p>
                                     </br>
 
                                     <span>Body :</span>
@@ -68,8 +68,6 @@
                                         <input type="submit" class="tm-btn tm-btn-primary tm-btn-small"
                                             value="Submit" />
                             </form>
-                            {{-- بعدين --}}
-                            {{-- <span class="d-block text-right tm-color-primary">Creative . Design . Business</span> --}}
                         </div>
 
 
