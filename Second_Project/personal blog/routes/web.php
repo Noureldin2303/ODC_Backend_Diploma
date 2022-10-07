@@ -27,7 +27,7 @@ Route::get('/login', function () {
 });
 Route::get('/logout', function () {
     Auth::logout();
-    return redirect("login");
+    return redirect("/");
 });
 Route::get('Blog/Create', function () {
     return view('create');
