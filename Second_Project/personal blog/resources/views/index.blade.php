@@ -232,7 +232,7 @@
 
                                 @if(Auth::user())
                                 <div class="flex-action">
-                                    <a href="{{ url("post/delete/ $article->article_id") }}"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="{{ url("post/delete/$article->article_id") }}"><i class="fa-solid fa-trash"></i></a>
                                     <a href="{{ url("post/hide/$article->article_id") }}">
                                         <i class="fa-solid fa-eye-slash"></i></a>
                                     <a href="edit/{{ $article->article_id }}">
