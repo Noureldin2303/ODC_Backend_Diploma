@@ -46,7 +46,7 @@
                     <div>
                         <div class="mb-4">
                             <h2 class="pt-2 tm-color-primary tm-post-title">{{ $article->title }}</h2>
-                            <p class="tm-mb-40">{{ $article->time }} posted by Admin Nat</p>
+                            <p class="tm-mb-40">{{ $article->created_at }} posted by Admin Nat</p>
                             <p>
                                 {{ $article->article_body }}
                             </p>
@@ -61,7 +61,7 @@
                             @foreach ($comment as $c)
                             <div class="tm-comment tm-mb-45">
                                 <figure class="tm-comment-figure">
-                                    <img src="../assets/images/comment.png" alt="Image" width="100px" height="100px" class="mb-2 rounded-circle img-thumbnail">
+                                    <img src="{{ $c->comment_img }}" alt="Image" width="100px" height="100px" class="mb-2 rounded-circle img-thumbnail">
                                     <figcaption class="tm-color-primary text-center">Anonymous</figcaption>
                                 </figure>
                                 <div>

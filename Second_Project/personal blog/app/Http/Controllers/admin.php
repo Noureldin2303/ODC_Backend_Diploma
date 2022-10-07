@@ -18,14 +18,21 @@ class admin extends Controller
 
     public function postlogin(Request $request)
     {
-        $req = $request->only("email", "password");
-        $r = DB::table('users')->where("email", "=", $req['email'])->where("password", "=", $req["password"])->get();
-        if (count($r)) {
-            setcookie('admin', true, time() + 60 * 60 * 60, '/');
-            return redirect('/');
-        } else {
-            return redirect("login");
+        
+        $data = [
+            "email"=>$request->email,
+            "password"=>$request->password
+        ];
+
+        if(Auth::attempt($data)){
+            return redirect("/");
         }
+        return redirect("login");
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect("login");
     }
 
     public function addNewArticle(Request $request)
@@ -36,7 +43,6 @@ class admin extends Controller
             "title" => $request->title,
             "category_id"=>1,
             "is_active" => 1,
-            "time"=>now(),
             "img"=>"$ss",
         ]);
         

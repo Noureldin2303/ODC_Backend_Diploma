@@ -38,11 +38,13 @@
 <body class="light-theme">
     <?php
     use Illuminate\Support\Facades\DB;
+    use Illuminate\Support\Facades\Auth;
     $articles = DB::table('article')
-        ->join('category', 'article.category_id', '=', 'category.catigory_id')
+        ->join('category', 'article.category_id', '=', 'category.category_id')
         ->select('article.*', 'category.name')
         ->where('article.is_active', 1)
         ->get();
+  
     ?>
     <header>
 
@@ -153,18 +155,17 @@
                         Specialized in <abbr title="Accessibility">PHP</abbr>
                         and Core Web Vitals
                     </p>
-                
+                   
                     <div class="btn-group">
-                    @csrf
-                
+                    @csrf 
+                    @if(Auth::guest())
                     <a href="{{url('login')}}" class="btn btn-secondary"> Login</a>
-                    
-                        @if (isset($_COOKIE['admin'])&&$_COOKIE['admin'])
+                    @else
                             <a href="Blog/Create" class="btn btn-secondary">Add Blog</a>
                             <a href="{{url('logout')}}" class="btn btn-secondary"> Logout</a>
-                        @endif
+                    @endif
                     </div>
-                    
+
                 </div>
 
                 <div class="right">
@@ -225,18 +226,14 @@
                                         <div class="wrapper">
                                             <a href="#" class="h4">Noureldin Farag</a>
 
-                                            <p class="text-sm">
-                                                <time datetime="2022-01-17">{{ $article->time }}</time>
-                                                <span class="separator"></span>
-                                                <ion-icon name="time-outline"></ion-icon>
-                                                <time datetime="PT3M">3 min</time>
-                                            </p>
                                         </div>
 
                                     </div>
                                     @csrf
-                                    @if (isset($_COOKIE['admin']) && $_COOKIE['admin'])
-                                    
+                                   
+                                    @if(Auth::guest())
+                                    <div></div>
+                                    @else
                                         <div class="flex-action">
                                             <a href="{{ url("post/delete/ $article->article_id") }}"><i
                                                     class="fa-solid fa-trash"></i></a>

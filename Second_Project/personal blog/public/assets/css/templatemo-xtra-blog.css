@@ -599,7 +599,7 @@ a:hover figcaption { color: #056767; }
 
 
 
-
+/* rgba(56, 204, 204, 0.75); */
 
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -623,7 +623,7 @@ body{
   width: 700px;
   height: 550px;
   overflow: hidden;
-  background: #0CC;
+  background: #fff;
   border-radius: 10px;
   transition: height 0.2s ease;
 }
@@ -643,7 +643,7 @@ body{
 .post header{
   font-size: 22px;
   font-weight: 600;
-  color: white;
+  color: #616c79;
   padding: 17px 0;
   text-align: center;
   border-bottom: 1px solid #bfbfbf;
@@ -666,7 +666,7 @@ body{
 form .content .details p{
   font-size: 17px;
   font-weight: bold;
-  color: white;
+  color: #616c79;
 }
 .content .details .privacy{
   display: flex;
@@ -678,13 +678,14 @@ form .content .details p{
   border-radius: 5px;
   align-items: center;
   max-width: 98px;
-  background: #E4E6EB;
+  background: rgba(56, 204, 204, 0.75);
   justify-content: space-between;
 }
 .details .privacy span{
   font-size: 13px;
   margin-top: 1px;
   font-weight: 500;
+  color: #333;
 }
 .details .privacy i:last-child{
   font-size: 13px;
@@ -693,14 +694,14 @@ form .content .details p{
 form :where(textarea, .button){
   width: 100%;
   outline: none;
-  border: none;
+  border-color: #b4b2b2;
 }
 form textarea{
   resize: none;
   font-size: 18px;
   margin-top: 30px;
   min-height: 100px;
-  border: rgba(0, 0, 0, 0.1);
+  border-color: #858585;
 }
 form textarea::placeholder{
   color: #858585;
@@ -722,7 +723,7 @@ form .options .title{
   margin: 15px 0;
   padding: 0 15px;
   border-radius: 7px;
-  border: 1px solid #B9B9B9;
+  border: 1px solid #a09e9e;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 form .options :where(.list, li),
@@ -748,12 +749,11 @@ form .button{
   cursor: no-drop;
   border-radius: 7px;
   background: #e2e5e9;
-  transition: all 0.3s ease;
 }
 form textarea:valid ~ .button{
   color: #09b6b6;
   cursor: pointer;
-  background: #fff;
+  background: rgb(255, 255, 255);
 }
 form textarea:valid ~ .button:hover{
   color: white;
@@ -779,7 +779,7 @@ form textarea:valid ~ .button:hover{
   height: 35px;
   cursor: pointer;
   font-size: 15px;
-  color: #747474;
+  color: #fff;
   border-radius: 50%;
   background: #E4E6EB;
 }

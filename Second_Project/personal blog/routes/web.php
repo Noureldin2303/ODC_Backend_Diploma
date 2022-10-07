@@ -5,6 +5,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\blogs;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +19,15 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     $blogs = new blogs;   
-    $articles= DB::table("article")->join("category","category_id","=","catigory_id")->where('article.is_active',1)->get();
+    $articles= DB::table("article")->join("category","article.category_id","=","category.category_id")->where('article.is_active',1)->get();
     return view('index', compact("articles"));
 });
 Route::get('/login', function () {
     return view('login');
 });
 Route::get('/logout', function () {
-    setcookie('admin', false, time()+60*60*60*60);
-    return redirect('/');
+    Auth::logout();
+    return redirect("login");
 });
 Route::get('Blog/Create', function () {
     return view('create');
